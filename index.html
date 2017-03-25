@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Game</title>
+    <style>
+        div#screenContainer {
+            width:500px;
+            margin:0 auto;
+        }
+        div#gameDisplay {
+            display:none;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+    <div id="screenContainer">
+        <h1>The Game</h1>
+        <h3>An Adventure Game</h3>
+        <form id="startForm">
+            <input type="button" id="startButton" title="start button" value="START">
+        </form>
+        <div id="gameDisplay">
+            <div id="input">
+                <form>
+                    <textarea title="User Input" id="UserTextArea" rows="4" cols="50"></textarea>
+                    <input type="button" id="userInputButton" class="inputButton" value="Submit">
+                </form>
+                <div id="output"><p></p></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
