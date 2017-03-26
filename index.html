@@ -1,36 +1,75 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <!-- Jasmine Library Files -->
+    <link data-require="jasmine@*" data-semver="2.0.0"
+          rel="stylesheet"
+          href="http://cdn.jsdelivr.net/jasmine/2.0.0/jasmine.css" />
+    <script data-require="jasmine@*" data-semver="2.0.0"
+            src="http://cdn.jsdelivr.net/jasmine/2.0.0/jasmine.js">
+    </script>
+    <script data-require="jasmine@*" data-semver="2.0.0"
+            src="http://cdn.jsdelivr.net/jasmine/2.0.0/jasmine-html.js">
+    </script>
+    <script data-require="jasmine@*" data-semver="2.0.0"
+            src="http://cdn.jsdelivr.net/jasmine/2.0.0/boot.js">
+    </script>
+    <!-- Jasmine Library Files -->
     <title>Game</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto:400,400i,700,700i|Anton|Domine:400,700" rel="stylesheet">
+    <meta charset="utf-8">
+    <link href="assets/css/main.css" rel="stylesheet">
     <style>
-        div#screenContainer {
-            width:500px;
-            margin:0 auto;
+        .game-header, #game-display {
+            text-align:center;
         }
-        div#gameDisplay {
+        #game-display {
             display:none;
+        }
+        .footer {
+            text-align: center;
+            background: #212121;
+            padding: 40px 0;
+            float: left;
+            width: 100%;
         }
     </style>
 </head>
 <body>
-<div class="content">
-    <div id="screenContainer">
-        <h1>The Game</h1>
-        <h3>An Adventure Game</h3>
-        <form id="startForm">
-            <input type="button" id="startButton" title="start button" value="START">
-        </form>
-        <div id="gameDisplay">
-            <div id="input">
-                <form>
-                    <textarea title="User Input" id="UserTextArea" rows="4" cols="50"></textarea>
-                    <input type="button" id="userInputButton" class="inputButton" value="Submit">
-                </form>
+<div class="row">
+    <div class="container">
+        <div class="col-md-12 game-header">
+            <h1>The Game</h1>
+            <h3>A Coding Adventure Game</h3>
+            <form id="startForm">
+                <input type="button" id="startButton" title="start button" value="START">
+            </form>
+        </div>
+
+        <div class="col-md-12">
+            <div id="game-display">
+                <canvas id="gameCanvas" width="300" height="200" style="border:1px solid #000000;"></canvas>
+                <p>Available Commands: Forward, Back, Left, Right, Map, Clues</p>
+                <p id="health">Your Health is: <span id="dynamic-health">100</span></p>
+                <p id="location">Your Location is: <span id="dynamic-location">The Hallway</span></p>
+                <div id="input">
+                    <form>
+                        <textarea title="User Input" id="UserTextArea" rows="2" cols="50"></textarea>
+                        <p>
+                            <input type="button" id="userInputButton" class="inputButton" value="Submit">
+                        </p>
+                    </form>
+                </div>
                 <div id="output"><p></p></div>
             </div>
         </div>
+
     </div>
 </div>
+
 <script src="assets/js/main.js"></script>
+<!-- Unit Tests -->
+<script src="test/tests.js"></script>
+
 </body>
 </html>
