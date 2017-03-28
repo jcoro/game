@@ -1,4 +1,4 @@
-var GAME = GAME || {};
+var GAME = {};
 
 GAME.text = {
 
@@ -87,7 +87,6 @@ GAME.checkValidMove = function(a, b){
 
 GAME.getRoom = function(p){
     var coords = p.getCoordinates();
-    console.log(coords)
     if (coords[0] === 68 && coords[1] === 194){
         GAME.roomOneModule.init();
     } else if (coords[0] === 470 && coords[1] === 194) {
@@ -106,6 +105,7 @@ GAME.getRoom = function(p){
 GAME.roomOneModule = (function(){
     function showImages() {
         GAME.overlay.style.display = "block";
+        GAME.exitInput.style.display = "none";
         GAME.appendText("In ROOM 1, you notice a computer screen like that above. The TOP SECRET information is protected by a CSS DIV which overlays the first part of the password. If only you could use Chrome's Developer tools to take a peek at the image that's being hidden by the DIV...", 0);
         GAME.gameCanvas.drawImage(GAME.roomOne, 0, 0);
         GAME.locationSpan.innerHTML = "Room 1";
@@ -122,6 +122,7 @@ GAME.roomOneModule = (function(){
 GAME.roomTwoModule = (function(){
     function showImages() {
         GAME.overlay.style.display = "hidden";
+        GAME.exitInput.style.display = "none";
         GAME.appendText("In ROOM 2 you notice calculations that lead you to believe that the second part of the password is the sum of all even numbers between 0 and 100. You don't have time to work this number out on paper or with a calculator, but you CAN write a JavaScript function to do it for you.", 0);
         GAME.gameCanvas.drawImage(GAME.roomTwo, 0, 0);
         GAME.locationSpan.innerHTML = "Room 2";
@@ -137,6 +138,7 @@ GAME.roomTwoModule = (function(){
 GAME.roomThreeModule = (function(){
     function showImages() {
         GAME.overlay.style.display = "hidden";
+        GAME.exitInput.style.display = "none";
         GAME.appendText("In Room 3, you find a data file with the following encrypted code: mqazxporiwkdjmsdvcxmtibdalpgdjfurutdmkoemsjdsfgtewsdxsdetfghtonamdsloightresdfgtbfwpolkmnjtuiomkjdfr You also find some scribblings which indicate that the password is comprised of every tenth letter of the code.", 0);
         GAME.gameCanvas.drawImage(GAME.roomThree, 0, 0);
         GAME.locationSpan.innerHTML = "Room 3";
@@ -152,6 +154,7 @@ GAME.roomThreeModule = (function(){
 GAME.roomFourModule = (function(){
     function showImages() {
         GAME.overlay.style.display = "hidden";
+        GAME.exitInput.style.display = "none";
         GAME.appendText("The fourth password is an ISOGRAM (search for it) embedded in code. You'll need to crack the code by piecing together the letters that are only used once in the following code: qjozwpqmqzvakytohfuuinwwdxexvbsgwmrjbkccslylg", 0);
         GAME.gameCanvas.drawImage(GAME.roomFour, 0, 0);
         GAME.locationSpan.innerHTML = "Room 4";
@@ -167,6 +170,7 @@ GAME.roomFourModule = (function(){
 GAME.HallwayAndMapModule = (function(){
     function showImages() {
         GAME.overlay.style.display = "hidden";
+        GAME.exitInput.style.display = "none";
         //GAME.appendText("This is where we will show the map", 0);
         GAME.gameCanvas.drawImage(GAME.map, 0, 0);
         GAME.gameCanvas.drawImage(GAME.you, GAME.player.coordinates[0], GAME.player.coordinates[1]);
@@ -185,8 +189,6 @@ GAME.ExitModule = (function(){
         GAME.overlay.style.display = "hidden";
         GAME.locationSpan.innerHTML = "The Exit";
         GAME.exitInput.style.display = "block";
-        GAME.input.style.display = "none";
-        console.log(GAME.exitInput);
     }
 
     function processExitInputs(e) {
@@ -367,10 +369,6 @@ function Player() {}
 Player.prototype.location = [1,1];
 Player.prototype.coordinates = [269, 194];
 
-Player.prototype.getLocation = function() {
-    return this.location;
-};
-
 Player.prototype.getCoordinates = function() {
     return this.coordinates;
 };
@@ -391,7 +389,7 @@ window.onload = function () {
     GAME.gameCanvas.drawImage(GAME.initialBackgroundImage, 0, 0);
 };
 
-
+/**
 
 function sumOfEvens(){
      var sum = 0;
@@ -428,7 +426,7 @@ function uniqueCharacters(string) {
     return result;
 }
  console.log(uniqueCharacters("qjozwpqmqzvakytohfuuinwwdxexvbsgwmrjbkccslylg"))
-/**
+
 **/
 
 
