@@ -5,31 +5,42 @@
     <title>Game</title>
     <meta charset="utf-8">
     <link href="assets/css/main.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Stardos+Stencil:400,700" rel="stylesheet">
 </head>
 <body>
 <div class="row">
     <div class="container">
         <div class="col-md-12 game-header">
-            <h1>School Escape - A Coding Adventure Game</h1>
             <form id="startForm">
                 <input type="button" id="startButton" title="start button" value="START">
             </form>
         </div>
 
         <div class="col-md-12">
+
             <div class = "canvas-container">
+                <div id="canvas-overlay">TOP SECRET</div>
                 <canvas id="gameCanvas" width="600" height="300" style="border:1px solid #000000;"></canvas>
             </div>
             <div id="game-display">
-                <p>Available Commands: Forward, Back, Left, Right, Map, Clues</p>
+                <p>Available Commands: Forward, Back, Left, Right, Map, Exit</p>
                 <p id="location">Your Location is: <span id="dynamic-location">The Hallway</span></p>
                 <div id="input">
-                    <form>
-                        <input type="text" title="User Input" id="UserTextArea">
+                    <!--Fake input so Chrome won't try to autofill -->
+                        <input style="display:none" type="text" name="fakeCommand"/>
+                        <input type="text" title="User Input" id="userTextArea" autocomplete="off">
                         <p>
                             <input type="button" id="userInputButton" class="inputButton" value="Submit">
                         </p>
-                    </form>
+                </div>
+                <div id="exitInput" style="display:none;">
+                    <input type="text" title="Room 1 Input" id="roomOneText" placeholder="Room One Password" autocomplete="off">
+                    <input type="text" title="Room 2 Input" id="roomTwoText" placeholder="Room Two Password" autocomplete="off">
+                    <input type="text" title="Room 3 Input" id="roomThreeText" placeholder="Room Three Password" autocomplete="off">
+                    <input type="text" title="Room 4 Input" id="roomFourText" placeholder="Room Four Password" autocomplete="off">
+                    <p>
+                        <input type="button" id="FinalInputButton" class="inputButton" value="Escape!">
+                    </p>
                 </div>
                 <div id="output"><p></p></div>
             </div>
