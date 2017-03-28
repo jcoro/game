@@ -329,3 +329,12 @@ input[type=button]:focus {
     max-width:500px;
     margin:0 auto;
 }
+.canvas-container {
+    text-align:center;
+}
+.game-header, #game-display {
+    text-align:center;
+}
+#game-display {
+    display:none;
+}

@@ -1,6 +1,6 @@
 describe('checkValidMove(a, b)', function(){
     var testGrid = null;
-
+    console.log("TESTS");
     beforeEach(function(){
         testGrid =
             [
@@ -11,6 +11,7 @@ describe('checkValidMove(a, b)', function(){
     });
 
     it('checks if a move in the grid is valid', function(){
+
         var testMove = [1,1];
         var move = GAME.checkValidMove(testMove, testGrid);
         expect(move).toBe(true);
